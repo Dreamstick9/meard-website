@@ -3,8 +3,12 @@ import { injectSpeedInsights } from "@vercel/speed-insights";
 import "./style.css";
 
 // Initialize Vercel Analytics & Speed Insights
-inject();
-injectSpeedInsights();
+inject({
+  mode: import.meta.env.DEV ? "development" : "production",
+});
+injectSpeedInsights({
+  debug: import.meta.env.DEV,
+});
 
 const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
