@@ -1,0 +1,34 @@
+{
+  "title": "Choose Meard's visual world",
+  "question": "The roll assigned Wire Harness Loom. Keep it, take a fused alternate, re-roll, steer, or play the category straight.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Wire Harness Loom",
+      "kicker": "THE ROLL",
+      "lineage": "Aerospace / industrial cable-harness bench",
+      "body": "Meard’s mechanism made physical: color-coded conductors, pin maps, and loom tape as the site’s grammar. Local-first means every capability is a route you own—bundled, labeled, and self-hosted—not a cloud socket. First viewport: a full-width harness workbench with the blue M as the primary connector housing; left rail pin-table of lab truths; right, live-feeling conductor runs labeled Harness · Post-training · Your hardware. Primary action: pin-label CTAs Explore tools → GitHub and Contact. Honest risk: funders outside deep tech need one clear sentence so “harness” doesn’t read as jargon-only engineering porn."
+    },
+    {
+      "id": "challenger-jacquard",
+      "label": "Jacquard Punch Loom",
+      "kicker": "FUSED ALTERNATE",
+      "lineage": "Punched-instruction brocade → open tools that weave local capability",
+      "body": "Midnight silk ground, gold weft motifs, cream punch-card rows. GitHub tools read as instruction cards; post-training is the gold bird that only appears when thousands of local choices fire. Gallery-grade for funders who fund craft + science. Craft bar is museum textile, not SaaS cards.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-jacquard-punched-brocade-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-jacquard-punched-brocade.webp"
+    },
+    {
+      "id": "challenger-particle",
+      "label": "Detector Event Display",
+      "kicker": "FUSED ALTERNATE",
+      "lineage": "Collider event displays → research lab as instrument",
+      "body": "Near-black vacuum, steel detector rings, cyan/yellow tracks as self-hosted request paths through Meard’s stack. Mission and tools present as one frozen event you can isolate track-by-track. Strong science-funder identification; risk is drifting into default “AI dark lab” unless tracks stay about local hardware routes, not vibes.",
+      "hero": "https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "steer": true
+}

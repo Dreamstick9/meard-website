@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meard — Theme 5: Warm Charcoal & Muted Gold</title>
+  <link rel="icon" type="image/png" href="/logo-256.png" />
+  
+  <!-- Google Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       THEME 5: WARM CHARCOAL & MUTED GOLD DESIGN TOKENS
+       ------------------------------------------------------------- */
+    :root {
+      /* Warm Dark Charcoal Grounds */
+      --bg-charcoal: #18181b;
+      --bg-charcoal-panel: #27272a;
+      --bg-charcoal-elevated: #3f3f46;
+      --bg-void: #0a0d14;
+
+      /* Muted Gold Accent System (Weft Signal) */
+      --gold-weft: #d4af37;
+      --gold-weft-soft: #e8c96a;
+      --gold-weft-deep: #b59226;
+      --gold-ambient-glow: rgba(212, 175, 55, 0.28);
+      --gold-ambient-subtle: rgba(212, 175, 55, 0.08);
+
+      /* Soft Blue Logo Aura System (Identity Bridge) */
+      --blue-logo: #3b82f6;
+      --blue-logo-soft: #60a5fa;
+      --blue-logo-glow: rgba(59, 130, 246, 0.45);
+      --blue-logo-aura: rgba(59, 130, 246, 0.16);
+
+      /* Instruction Surface (Punch Card Cream) */
+      --cream-card: #f2ebd6;
+      --cream-ink: #1a1a14;
+      --cream-subtle: rgba(242, 235, 214, 0.08);
+
+      /* Text Tokens */
+      --text-bright: #fafafa;
+      --text-main: #e4e4e7;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+
+      /* Borders & Structural Lines */
+      --border-subtle: rgba(212, 175, 55, 0.22);
+      --border-gold: rgba(212, 175, 55, 0.5);
+      --border-blue: rgba(59, 130, 246, 0.35);
+
+      /* Typography Families */
+      --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    /* Reset & Core Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-charcoal);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Ambient Background Layering */
+    .ambient-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        radial-gradient(ellipse at 15% 20%, var(--blue-logo-aura) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 25%, var(--gold-ambient-glow) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 85%, rgba(212, 175, 55, 0.06) 0%, transparent 65%);
+    }
+
+    .punch-grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      background-image: radial-gradient(rgba(212, 175, 55, 0.35) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* Top Theme Status Bar */
+    .theme-bar {
+      position: relative;
+      z-index: 100;
+      background: linear-gradient(90deg, #18181b 0%, #27272a 50%, #18181b 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 32px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold-weft-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .theme-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .theme-dot-gold {
+      width: 7px;
+      height: 7px;
+      background-color: var(--gold-weft);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold-weft);
+    }
+
+    .theme-dot-blue {
+      width: 7px;
+      height: 7px;
+      background-color: var(--blue-logo);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--blue-logo);
+    }
+
+    .theme-meta {
+      color: var(--text-muted);
+      display: flex;
+      gap: 20px;
+    }
+
+    .theme-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background-color: rgba(24, 24, 27, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Soft Blue Glow Around /logo.png */
+    .logo-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .logo-glow-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: rgba(10, 13, 20, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      box-shadow: 
+        0 0 25px var(--blue-logo-glow),
+        0 0 50px rgba(59, 130, 246, 0.2),
+        inset 0 0 12px rgba(59, 130, 246, 0.2);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .logo-glow-wrapper:hover {
+      box-shadow: 
+        0 0 35px var(--blue-logo-glow),
+        0 0 70px rgba(59, 130, 246, 0.35),
+        inset 0 0 18px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+    }
+
+    .logo-brand-name {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: 0.12em;
+      color: var(--text-bright);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-weft-soft);
+    }
+
+    .nav-links a.active {
+      color: var(--gold-weft);
+      font-weight: 500;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gold-weft);
+      box-shadow: 0 0 8px var(--gold-weft);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-subtle);
+      color: var(--gold-weft-soft);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-weft);
+      color: var(--bg-charcoal);
+      border-color: var(--gold-weft-soft);
+      box-shadow: 0 0 20px var(--gold-ambient-glow);
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION PREVIEW
+       ------------------------------------------------------------- */
+    .hero-section {
+      position: relative;
+      padding: 90px 0 110px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Kicker Badge */
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-weft-soft);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .kicker-icon {
+      color: var(--gold-weft);
+    }
+
+    /* Hero Main Title */
+    .hero-title-container {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .hero-title-woven-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.25));
+    }
+
+    .hero-title-text {
+      font-family: var(--font-mono);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--text-bright);
+    }
+
+    .hero-title-gold {
+      background: linear-gradient(135deg, #ffffff 0%, var(--gold-weft-soft) 40%, var(--gold-weft) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Lede Paragraph */
+    .hero-lede {
+      font-family: var(--font-serif);
+      font-size: 1.21875rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    /* Action Buttons */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--gold-weft);
+      color: var(--bg-charcoal);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 15px 30px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 22px var(--gold-ambient-glow);
+      border: 1px solid var(--gold-weft-soft);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--gold-weft-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--bg-charcoal-panel);
+      color: var(--gold-weft-soft);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 15px 28px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold-weft);
+      background-color: var(--bg-charcoal-elevated);
+      color: var(--text-bright);
+      transform: translateY(-2px);
+    }
+
+    .btn-blue-glow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      color: var(--blue-logo-soft);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 15px 26px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid var(--blue-logo-glow);
+      transition: all 0.25s ease;
+    }
+
+    .btn-blue-glow:hover {
+      background: rgba(59, 130, 246, 0.24);
+      color: #ffffff;
+      box-shadow: 0 0 25px var(--blue-logo-glow);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       HERO ART & AMBIENT BRIDGE CONTAINER
+       ------------------------------------------------------------- */
+    .hero-art-container {
+      position: relative;
+    }
+
+    .hero-art-card {
+      position: relative;
+      background: linear-gradient(150deg, rgba(39, 39, 42, 0.95) 0%, rgba(24, 24, 27, 0.98) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 40px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient Dual-Glow Bridge Effect (Blue Logo <-> Gold Artwork) */
+    .ambient-bridge-halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140%;
+      height: 140%;
+      pointer-events: none;
+      z-index: 1;
+      background: 
+        radial-gradient(circle at 25% 35%, var(--blue-logo-glow) 0%, transparent 55%),
+        radial-gradient(circle at 75% 65%, var(--gold-ambient-glow) 0%, transparent 60%);
+      opacity: 0.85;
+      filter: blur(25px);
+      animation: pulseGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.75; transform: translate(-50%, -50%) scale(0.98); }
+      100% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.03); }
+    }
+
+    .hero-art-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-bird-img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px var(--gold-ambient-glow));
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-art-card:hover .hero-bird-img {
+      transform: scale(1.03);
+    }
+
+    .art-bridge-legend {
+      position: relative;
+      z-index: 2;
+      margin-top: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(10, 13, 20, 0.75);
+      padding: 10px 20px;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blue-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--blue-logo);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--blue-logo);
+    }
+
+    .gold-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold-weft);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--gold-weft);
+    }
+
+    /* -------------------------------------------------------------
+       COLOR PALETTE SWATCHES SECTION
+       ------------------------------------------------------------- */
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-family: var(--font-mono);
+      font-size: 1.625rem;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '◆';
+      color: var(--gold-weft);
+      font-size: 1.1rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-serif);
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 24px;
+      margin-bottom: 90px;
+    }
+
+    .swatch-card {
+      background-color: var(--bg-charcoal-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 18px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-weft);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--gold-ambient-subtle);
+    }
+
+    .swatch-card:active {
+      transform: translateY(-1px);
+    }
+
+    .swatch-color-box {
+      height: 100px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+    }
+
+    .swatch-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-name {
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--gold-weft-soft);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .swatch-desc {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* -------------------------------------------------------------
+       THEME ARCHITECTURE & BRIDGE CONCEPT CARDS
+       ------------------------------------------------------------- */
+    .bridge-concept-container {
+      background: linear-gradient(180deg, var(--bg-charcoal-panel) 0%, var(--bg-charcoal) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 44px;
+      margin-bottom: 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bridge-concept-header {
+      margin-bottom: 32px;
+    }
+
+    .bridge-concept-header h3 {
+      font-family: var(--font-mono);
+      font-size: 1.375rem;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+    }
+
+    .bridge-concept-header p {
+      font-family: var(--font-serif);
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+    }
+
+    .bridge-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .concept-card {
+      background: rgba(24, 24, 27, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 28px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .concept-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+    }
+
+    .concept-card.card-charcoal::before { background: var(--bg-charcoal-panel); }
+    .concept-card.card-gold::before { background: var(--gold-weft); box-shadow: 0 0 10px var(--gold-weft); }
+    .concept-card.card-blue::before { background: var(--blue-logo); box-shadow: 0 0 10px var(--blue-logo); }
+
+    .concept-card h4 {
+      font-family: var(--font-mono);
+      font-size: 1.0625rem;
+      color: var(--gold-weft-soft);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .concept-card p {
+      font-family: var(--font-serif);
+      font-size: 0.96875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* -------------------------------------------------------------
+       LIVE COMPONENTS PREVIEW
+       ------------------------------------------------------------- */
+    .components-section {
+      margin-bottom: 90px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-top: 32px;
+    }
+
+    .tool-card {
+      background: var(--bg-charcoal-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .tool-card:hover {
+      border-color: var(--gold-weft);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-ambient-subtle);
+    }
+
+    .tool-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .tool-title {
+      font-family: var(--font-mono);
+      font-size: 1.1875rem;
+      color: var(--gold-weft-soft);
+      font-weight: 500;
+    }
+
+    .tool-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--blue-logo-soft);
+      border: 1px solid var(--blue-logo-glow);
+      padding: 3px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .tool-body {
+      font-family: var(--font-serif);
+      font-size: 0.96875rem;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .tool-footer {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 14px;
+    }
+
+    .tool-link {
+      color: var(--gold-weft);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .tool-link:hover {
+      color: var(--gold-weft-soft);
+      text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------
+       INSTRUCTION PUNCH STRIP
+       ------------------------------------------------------------- */
+    .punch-strip-container {
+      margin-bottom: 90px;
+    }
+
+    .punch-strip {
+      background-color: var(--cream-card);
+      color: var(--cream-ink);
+      font-family: var(--font-mono);
+      padding: 20px 32px;
+      border-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      border-left: 4px solid var(--gold-weft-deep);
+    }
+
+    .punch-dots {
+      display: flex;
+      gap: 10px;
+      font-size: 0.8125rem;
+      color: rgba(26, 26, 20, 0.45);
+      letter-spacing: 0.2em;
+    }
+
+    .punch-label {
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.9375rem;
+      color: var(--cream-ink);
+    }
+
+    .punch-action {
+      background: var(--cream-ink);
+      color: var(--cream-card);
+      padding: 8px 16px;
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: background-color 0.2s ease;
+    }
+
+    .punch-action:hover {
+      background: #33332b;
+    }
+
+    /* Toast Notification for Clipboard */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--bg-charcoal-panel);
+      border: 1px solid var(--gold-weft);
+      color: var(--gold-weft-soft);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      padding: 12px 24px;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--gold-ambient-glow);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-void);
+      padding: 48px 0;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-bright);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 960px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 60px 0 80px;
+      }
+
+      .nav-bar {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .theme-bar {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+
+      .bridge-concept-container {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Lighting Layer -->
+  <div class="ambient-canvas"></div>
+  <div class="punch-grid-overlay"></div>
+
+  <!-- Theme Header Status Bar -->
+  <header class="theme-bar">
+    <div class="theme-badge">
+      <span class="theme-dot-gold"></span>
+      <span class="theme-dot-blue"></span>
+      Theme 5: Warm Charcoal & Muted Gold
+    </div>
+    <div class="theme-meta">
+      <span>◆ System: Jacquard Weave</span>
+      <span>◆ Ambient: Blue Aura Bridge</span>
+      <span>◆ Palette: Warm Zinc #18181b / #d4af37</span>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation Header -->
+  <nav class="nav-bar">
+    <a href="#top" class="logo-container">
+      <div class="logo-glow-wrapper">
+        <img class="logo-img" src="/logo.png" alt="Meard Logo" onerror="this.src='logo.png'" />
+      </div>
+      <span class="logo-brand-name">Meard</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Manifesto</a></li>
+      <li><a href="#swatches">Color Palette</a></li>
+      <li><a href="#bridge">Aesthetic Bridge</a></li>
+      <li><a href="#tools">Open Harnesses</a></li>
+    </ul>
+
+    <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="nav-cta">
+      <span>github.com/Meard-AI</span>
+      <span>↗</span>
+    </a>
+  </nav>
+
+  <!-- Main Document Shell -->
+  <main class="container">
+    
+    <!-- -------------------------------------------------------------
+         HERO SECTION PREVIEW
+         ------------------------------------------------------------- -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Hero Copy Column -->
+      <div class="hero-copy">
+        
+        <!-- Kicker -->
+        <div class="kicker">
+          <span class="kicker-icon">◆</span>
+          <span>Non-profit AI lab</span>
+          <span class="kicker-icon">◆</span>
+        </div>
+
+        <!-- Main Title -->
+        <div class="hero-title-container">
+          <img class="hero-title-woven-img" src="/title-woven.png" alt="Sovereign intelligence on your hardware." onerror="this.style.display='none'; document.getElementById('fallback-hero-title').style.display='block';" />
+          
+          <h1 id="fallback-hero-title" class="hero-title-text" style="display: none;">
+            Sovereign intelligence <br />
+            <span class="hero-title-gold">on your hardware.</span>
+          </h1>
+        </div>
+
+        <!-- Lede Text -->
+        <p class="hero-lede">
+          Investigating the epistemology of machine cognition and building open-source architectures to host sovereign digital minds directly on hardware you command.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="hero-actions">
+          <a href="#tools" class="btn-primary">
+            <span>◆ Explore Manifestations</span>
+          </a>
+          
+          <a href="#swatches" class="btn-secondary">
+            <span>Inspect Palette</span>
+          </a>
+
+          <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="btn-blue-glow">
+            <span style="color: var(--blue-logo);">●</span>
+            <span>GitHub Repositories</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Hero Visual Art Column: Gold Bird & Blue Ambient Bridge -->
+      <div class="hero-art-container">
+        <div class="hero-art-card">
+          
+          <!-- Ambient Dual Glow Bridge -->
+          <div class="ambient-bridge-halo"></div>
+
+          <div class="hero-art-wrapper">
+            <img class="hero-bird-img" src="/bird.png" alt="Gold Woven Bird Artwork" onerror="this.src='bird.png'" />
+          </div>
+
+          <div class="art-bridge-legend">
+            <div class="legend-item">
+              <span class="blue-dot"></span>
+              <span>Blue Logo Aura</span>
+            </div>
+            <span style="color: var(--border-gold);">⇄</span>
+            <div class="legend-item">
+              <span class="gold-dot"></span>
+              <span>Gold Weft Animal</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- -------------------------------------------------------------
+         COLOR PALETTE SWATCHES SECTION
+         ------------------------------------------------------------- -->
+    <section class="swatches-section" id="swatches">
+      
+      <div class="section-header">
+        <h2 class="section-title">Theme 5 Color Palette Swatches</h2>
+        <p class="section-subtitle">
+          Click any swatch to copy its Hex color code. Warm Charcoal provides depth; Muted Gold acts as signal; Soft Blue Glow bridges brand identity.
+        </p>
+      </div>
+
+      <div class="swatches-grid">
+        
+        <!-- Swatch 1: Warm Charcoal Ground -->
+        <div class="swatch-card" onclick="copyColor('#18181b')">
+          <div class="swatch-color-box" style="background-color: #18181b;">
+            <span class="swatch-tag">Ground</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Warm Charcoal</span>
+            <span class="swatch-hex">#18181B</span>
+            <span class="swatch-desc">Primary page ground. Soft zinc tone replacing harsh black.</span>
+          </div>
+        </div>
+
+        <!-- Swatch 2: Warm Charcoal Panel -->
+        <div class="swatch-card" onclick="copyColor('#27272a')">
+          <div class="swatch-color-box" style="background-color: #27272a;">
+            <span class="swatch-tag">Raised</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Dark Zinc Panel</span>
+            <span class="swatch-hex">#27272A</span>
+            <span class="swatch-desc">Card background & elevated module containers.</span>
+          </div>
+        </div>
+
+        <!-- Swatch 3: Muted Gold Weft -->
+        <div class="swatch-card" onclick="copyColor('#d4af37')">
+          <div class="swatch-color-box" style="background-color: #d4af37; color: #18181b;">
+            <span class="swatch-tag" style="background: rgba(255,255,255,0.8); color: #18181b;">Weft Signal</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Muted Gold</span>
+            <span class="swatch-hex">#D4AF37</span>
+            <span class="swatch-desc">Primary display text, CTAs, & woven artwork highlight.</span>
+          </div>
+        </div>
+
+        <!-- Swatch 4: Soft Gold Hover -->
+        <div class="swatch-card" onclick="copyColor('#e8c96a')">
+          <div class="swatch-color-box" style="background-color: #e8c96a; color: #18181b;">
+            <span class="swatch-tag" style="background: rgba(255,255,255,0.8); color: #18181b;">Radiance</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Soft Gold</span>
+            <span class="swatch-hex">#E8C96A</span>
+            <span class="swatch-desc">Hover state, headline gradient highlight, active states.</span>
+          </div>
+        </div>
+
+        <!-- Swatch 5: Soft Blue Logo Aura -->
+        <div class="swatch-card" onclick="copyColor('#3b82f6')">
+          <div class="swatch-color-box" style="background-color: #3b82f6; box-shadow: inset 0 0 20px rgba(255,255,255,0.4);">
+            <span class="swatch-tag">Bridge Aura</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Soft Blue Glow</span>
+            <span class="swatch-hex">#3B82F6</span>
+            <span class="swatch-desc">Ambient halo around /logo.png bridging blue logo & gold art.</span>
+          </div>
+        </div>
+
+        <!-- Swatch 6: Punch Card Cream -->
+        <div class="swatch-card" onclick="copyColor('#f2ebd6')">
+          <div class="swatch-color-box" style="background-color: #f2ebd6; color: #1a1a14;">
+            <span class="swatch-tag" style="background: #1a1a14; color: #f2ebd6;">Instruction</span>
+          </div>
+          <div class="swatch-info">
+            <span class="swatch-name">Punch Card Cream</span>
+            <span class="swatch-hex">#F2EBD6</span>
+            <span class="swatch-desc">Instruction strips, code execution ledger, contrast bands.</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- -------------------------------------------------------------
+       AESTHETIC BRIDGE & DESIGN CONCEPT
+       ------------------------------------------------------------- -->
+    <section class="bridge-concept-container" id="bridge">
+      
+      <div class="bridge-concept-header">
+        <h3>Theme Concept: "Warm Charcoal & Muted Gold"</h3>
+        <p>Architectural principles behind bridging the blue identity mark with gold jacquard weave motifs.</p>
+      </div>
+
+      <div class="bridge-cards-grid">
+        
+        <div class="concept-card card-charcoal">
+          <h4>
+            <span>■</span> Warm Charcoal Canvas
+          </h4>
+          <p>
+            Replaces cold pitch-black with `#18181b` and `#27272a` zinc undertones, evoking warm loom wood and woven shadow. Creates tactile depth without artificial SaaS glare.
+          </p>
+        </div>
+
+        <div class="concept-card card-gold">
+          <h4>
+            <span style="color: var(--gold-weft);">◆</span> Muted Gold Weft
+          </h4>
+          <p>
+            Gold `#D4AF37` acts as physical thread—appearing when instructions fire on local hardware. Used for primary CTAs, titles, and golden animal artwork (`/bird.png`).
+          </p>
+        </div>
+
+        <div class="concept-card card-blue">
+          <h4>
+            <span style="color: var(--blue-logo);">●</span> Soft Blue Ambient Glow
+          </h4>
+          <p>
+            A radial light field around `/logo.png` softly radiates outward, forming a seamless chromatic transition between the fluid blue monogram and the golden animal motifs.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- -------------------------------------------------------------
+       PUNCH CARD INSTRUCTION STRIP PREVIEW
+       ------------------------------------------------------------- -->
+    <section class="punch-strip-container">
+      <div class="punch-strip">
+        <div class="punch-dots">
+          ● ○ ● ● ○ ● ● ○ ●
+        </div>
+        <div class="punch-title">
+          ◆ INSTRUCTION CARD 005 — SOVEREIGN LOCAL HARDWARE SPECIFICATION
+        </div>
+        <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="punch-action">
+          View Punch Spec ↗
+        </a>
+      </div>
+    </section>
+
+
+    <!-- -------------------------------------------------------------
+       LIVE COMPONENTS: REPOSITORY HARNESS CARDS
+       ------------------------------------------------------------- -->
+    <section class="components-section" id="tools">
+      
+      <div class="section-header">
+        <h2 class="section-title">Open Repositories & Harnesses</h2>
+        <p class="section-subtitle">
+          Tangible software tools shipped by Meard while foundation models remain in gestation.
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        
+        <!-- Tool Card 1 -->
+        <article class="tool-card">
+          <div class="tool-header">
+            <h3 class="tool-title">meard-harness</h3>
+            <span class="tool-tag">Rust / C++</span>
+          </div>
+          <p class="tool-body">
+            Local-first execution environment designed for low-latency inference on consumer GPU & NPU clusters with zero external cloud dependencies.
+          </p>
+          <div class="tool-footer">
+            <span>License: Apache 2.0</span>
+            <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="tool-link">github.com/Meard-AI ↗</a>
+          </div>
+        </article>
+
+        <!-- Tool Card 2 -->
+        <article class="tool-card">
+          <div class="tool-header">
+            <h3 class="tool-title">meard-weave</h3>
+            <span class="tool-tag">Python / PyTorch</span>
+          </div>
+          <p class="tool-body">
+            Epistemological dataset sculpting toolkit for alignment, post-training refinement, and domain specialization of sovereign neural weights.
+          </p>
+          <div class="tool-footer">
+            <span>License: MIT</span>
+            <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="tool-link">github.com/Meard-AI ↗</a>
+          </div>
+        </article>
+
+        <!-- Tool Card 3 -->
+        <article class="tool-card">
+          <div class="tool-header">
+            <h3 class="tool-title">meard-core</h3>
+            <span class="tool-tag">TypeScript</span>
+          </div>
+          <p class="tool-body">
+            Jacquard-inspired orchestration protocol for managing local cognitive nodes and secure peer-to-peer weight synchronization.
+          </p>
+          <div class="tool-footer">
+            <span>License: AGPL v3</span>
+            <a href="https://github.com/Meard-AI" target="_blank" rel="noopener noreferrer" class="tool-link">github.com/Meard-AI ↗</a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Clipboard Toast Notification -->
+  <div id="toast" class="toast">
+    Copied color code to clipboard!
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span style="color: var(--blue-logo); filter: drop-shadow(0 0 6px var(--blue-logo));">●</span>
+        <span style="font-weight: 600; letter-spacing: 0.1em;">MEARD</span>
+        <span>— Non-profit AI Lab</span>
+      </div>
+      <div>
+        Theme 5: Warm Charcoal & Muted Gold preview.
+      </div>
+      <div>
+        <a href="#top" style="color: var(--gold-weft); text-decoration: none;">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript for Swatches & Effects -->
+  <script>
+    function copyColor(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = 'Copied ' + hex + ' to clipboard!';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      }).catch(err => {
+        console.error('Failed to copy color: ', err);
+      });
+    }
+  </script>
+
+</body>
+</html>

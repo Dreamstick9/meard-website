@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme 6: Nordic Light Minimalist · Meard AI</title>
+  <meta name="description" content="Nordic Light Minimalist theme design preview for Meard non-profit AI lab. Modern light slate, soft sky-blue gradients, and sovereign local-first intelligence." />
+  <link rel="icon" type="image/png" href="/logo-256.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       NORDIC LIGHT MINIMALIST DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      /* Background Slate & Sky Palette */
+      --bg-light: #f8fafc;
+      --bg-mid: #f1f5f9;
+      --bg-slate: #e2e8f0;
+      --bg-gradient: linear-gradient(165deg, #f8fafc 0%, #f1f5f9 45%, #e2e8f0 100%);
+      
+      /* Surface & Card Colors */
+      --surface-white: #ffffff;
+      --surface-glass: rgba(255, 255, 255, 0.75);
+      --surface-glass-border: rgba(255, 255, 255, 0.9);
+      --border-subtle: #e2e8f0;
+      --border-focus: #38bdf8;
+
+      /* Sky-Blue Accents */
+      --sky-deep: #0284c7;
+      --sky-bright: #38bdf8;
+      --sky-pale: #e0f2fe;
+      --sky-gradient: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      --sky-gradient-hover: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+      --sky-glow: rgba(56, 189, 248, 0.25);
+      --sky-glow-soft: rgba(2, 132, 199, 0.08);
+
+      /* Typography Colors */
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --text-sky: #0284c7;
+
+      /* Shadows */
+      --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.04), 0 1px 4px -1px rgba(15, 23, 42, 0.03);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 16px -6px rgba(2, 132, 199, 0.04);
+      --shadow-lg: 0 20px 40px -12px rgba(15, 23, 42, 0.08), 0 12px 24px -8px rgba(2, 132, 199, 0.08);
+      --shadow-sky: 0 8px 24px -4px rgba(2, 132, 199, 0.3);
+
+      /* Fonts */
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', SFMono-Regular, monospace;
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-light);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Nordic Atmospheric Background Accents */
+    .nordic-grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 85% 30%, rgba(2, 132, 199, 0.06) 0%, transparent 40%),
+        linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Layout Wrapper */
+    .page-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    header.nav-bar {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      margin-top: 16px;
+      margin-bottom: 40px;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    header.nav-bar:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .nav-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-brand:hover .nav-logo {
+      transform: scale(1.06) rotate(-2deg);
+    }
+
+    .nav-title-text {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+    }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--sky-pale);
+      color: var(--sky-deep);
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.725rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--sky-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--sky-bright);
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sky-deep);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: 40px 0 80px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 20px 0 60px 0;
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 100px;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.06);
+      margin-bottom: 24px;
+    }
+
+    .kicker-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--sky-deep);
+    }
+
+    .kicker-text {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky-deep);
+    }
+
+    .hero-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .hero-title-highlight {
+      background: var(--sky-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .hero-lede {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 30px;
+      background: var(--sky-gradient);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.975rem;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sky);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.45);
+      background: var(--sky-gradient-hover);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.975rem;
+      text-decoration: none;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      border-color: var(--sky-bright);
+      color: var(--sky-deep);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Micro Meta Badges */
+    .hero-meta-grid {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.725rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+    }
+
+    .meta-value {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       HERO VISUAL SHOWCASE CARD
+       ========================================================================== */
+    .hero-visual-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-display-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .logo-display-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.12), 0 16px 32px -8px rgba(2, 132, 199, 0.12);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .logo-wrapper {
+      position: relative;
+      padding: 28px 36px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), var(--shadow-sm);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .showcase-logo {
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(2, 132, 199, 0.12));
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .logo-display-card:hover .showcase-logo {
+      transform: scale(1.05);
+    }
+
+    .card-caption {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .card-headline {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .card-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pill-chip {
+      padding: 4px 12px;
+      background: var(--bg-mid);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Floating Accent Card */
+    .floating-accent-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: #ffffff;
+      padding: 14px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    @media (max-width: 600px) {
+      .floating-accent-card {
+        position: static;
+        margin-top: 16px;
+      }
+    }
+
+    .accent-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--sky-pale);
+      color: var(--sky-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       COLOR PALETTE SWATCHES SECTION
+       ========================================================================== */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--border-subtle) 50%, transparent 100%);
+      margin: 40px 0 60px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sky-deep);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .swatch-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sky-bright);
+    }
+
+    .swatch-color-box {
+      height: 100px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swatch-name {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .swatch-role {
+      font-family: var(--font-sans);
+      font-size: 0.775rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--sky-deep);
+      background: var(--sky-pale);
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    /* ==========================================================================
+       FEATURE / ONTOLOGY SHOWCASE CARDS
+       ========================================================================== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(56, 189, 248, 0.4);
+      background: #ffffff;
+    }
+
+    .feature-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--sky-gradient);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sky);
+    }
+
+    .feature-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-family: var(--font-serif);
+      font-size: 0.975rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer.nordic-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0 60px 0;
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .footer-theme-tag {
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.775rem;
+      color: var(--sky-deep);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-main);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      padding: 10px 18px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nordic Grid Overlay -->
+  <div class="nordic-grid-bg"></div>
+
+  <div class="page-container">
+
+    <!-- Header / Navigation -->
+    <header class="nav-bar">
+      <a href="#top" class="nav-brand">
+        <img src="/logo.png" alt="Meard Logo" class="nav-logo" />
+        <span class="nav-title-text">MEARD</span>
+      </a>
+      <div class="nav-badge">
+        <span class="nav-badge-dot"></span>
+        <span>THEME 06 · NORDIC LIGHT</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Hero</a></li>
+        <li><a href="#swatches">Color System</a></li>
+        <li><a href="#vectors">Ontology</a></li>
+      </ul>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <div class="hero-kicker-pill">
+          <svg class="kicker-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span class="kicker-text">Non-profit AI lab</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-highlight">Sovereign intelligence</span> on your hardware.
+        </h1>
+
+        <p class="hero-lede">
+          Investigating the epistemology of machine cognition and the architectures required to host sovereign digital minds on hardware you command.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#swatches" class="btn-primary">
+            <span>Explore Palette</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <a href="#vectors" class="btn-secondary">
+            <span>Read Mission</span>
+          </a>
+        </div>
+
+        <div class="hero-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Architecture</span>
+            <span class="meta-value">Local-First</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">License</span>
+            <span class="meta-value">Open Source</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Cognitive Mode</span>
+            <span class="meta-value">Autonomous</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Logo Showcase -->
+      <div class="hero-visual-container">
+        <div class="logo-display-card">
+          <div class="logo-wrapper">
+            <img src="/logo.png" alt="Meard Blue Logo Preview" class="showcase-logo" />
+          </div>
+          <p class="card-caption">VISUAL INTEGRATION PREVIEW</p>
+          <h2 class="card-headline">Vibrant Blue Mark on Crisp Light Surface</h2>
+          <div class="card-pills">
+            <span class="pill-chip">#0284c7 Sky Accent</span>
+            <span class="pill-chip">#f8fafc Light Slate</span>
+            <span class="pill-chip">Soft Glassmorphism</span>
+          </div>
+
+          <!-- Floating Badge Accent -->
+          <div class="floating-accent-card">
+            <div class="accent-icon-box">
+              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.725rem; color: var(--text-light);">CONTRAST RATIO</div>
+              <div style="font-family: var(--font-sans); font-weight: 700; font-size: 0.9rem; color: var(--text-main);">WCAG AAA Compliant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- COLOR PALETTE SWATCHES SECTION -->
+    <section id="swatches">
+      <div class="section-header">
+        <p class="section-kicker">DESIGN SYSTEM & PALETTE</p>
+        <h2 class="section-title">Nordic Light Color Palette</h2>
+        <p class="section-subtitle">A harmonized spectrum engineered for extreme legibility, soft atmospheric sky tones, and high-precision UI elements.</p>
+      </div>
+
+      <div class="swatch-grid">
+        
+        <!-- Swatch 1: Light Slate Ground -->
+        <div class="swatch-card" onclick="copyHex('#f8fafc', 'Light Slate Ground')">
+          <div class="swatch-color-box" style="background: #f8fafc;"></div>
+          <div class="swatch-name">Light Slate</div>
+          <div class="swatch-role">Primary Ground</div>
+          <div class="swatch-hex">#f8fafc</div>
+        </div>
+
+        <!-- Swatch 2: Sky Slate Surface -->
+        <div class="swatch-card" onclick="copyHex('#e2e8f0', 'Sky Slate Surface')">
+          <div class="swatch-color-box" style="background: #e2e8f0;"></div>
+          <div class="swatch-name">Sky Slate</div>
+          <div class="swatch-role">Borders & Soft Panels</div>
+          <div class="swatch-hex">#e2e8f0</div>
+        </div>
+
+        <!-- Swatch 3: Sky Blue Deep -->
+        <div class="swatch-card" onclick="copyHex('#0284c7', 'Sky Blue Deep')">
+          <div class="swatch-color-box" style="background: #0284c7;"></div>
+          <div class="swatch-name">Sky Deep</div>
+          <div class="swatch-role">Primary Sky Accent</div>
+          <div class="swatch-hex">#0284c7</div>
+        </div>
+
+        <!-- Swatch 4: Sky Blue Bright -->
+        <div class="swatch-card" onclick="copyHex('#38bdf8', 'Sky Blue Bright')">
+          <div class="swatch-color-box" style="background: #38bdf8;"></div>
+          <div class="swatch-name">Sky Bright</div>
+          <div class="swatch-role">Gradient & Glow Highlight</div>
+          <div class="swatch-hex">#38bdf8</div>
+        </div>
+
+        <!-- Swatch 5: Sky Pale -->
+        <div class="swatch-card" onclick="copyHex('#e0f2fe', 'Sky Pale')">
+          <div class="swatch-color-box" style="background: #e0f2fe;"></div>
+          <div class="swatch-name">Sky Pale</div>
+          <div class="swatch-role">Subtle Pill Background</div>
+          <div class="swatch-hex">#e0f2fe</div>
+        </div>
+
+        <!-- Swatch 6: Deep Text Ink -->
+        <div class="swatch-card" onclick="copyHex('#0f172a', 'Deep Text Ink')">
+          <div class="swatch-color-box" style="background: #0f172a;"></div>
+          <div class="swatch-name">Deep Ink</div>
+          <div class="swatch-role">Crisp Typography</div>
+          <div class="swatch-hex">#0f172a</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHILOSOPHICAL VECTORS / ONTOLOGY SECTION -->
+    <section id="vectors">
+      <div class="section-header">
+        <p class="section-kicker">PHILOSOPHICAL VECTORS</p>
+        <h2 class="section-title">The Ontology of Local Intelligence</h2>
+        <p class="section-subtitle">Architectural principles underpinning sovereign AI deployment.</p>
+      </div>
+
+      <div class="features-grid">
+        
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Local Sovereignty</h3>
+          <p class="feature-desc">
+            Agency tethered to an opaque, external API is fundamentally compromised. Digital minds must reside within one's own domain, executing directly on consumer or enterprise hardware.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Tangible Harnesses</h3>
+          <p class="feature-desc">
+            We proffer tangible open infrastructure and code, eschewing hollow prophecies of unmanifested intellects. Public tools serve as the scaffold for future weights.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Epistemological Rigor</h3>
+          <p class="feature-desc">
+            Transcending standard model mechanics to investigate the cognitive frameworks through which artificial entities perceive, reason, and act with true autonomy.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="nordic-footer">
+      <div class="footer-brand">
+        <img src="/logo.png" alt="Meard Logo" style="height: 24px; width: auto;" />
+        <span class="footer-copy">© 2026 Meard AI · Non-profit AI Lab</span>
+      </div>
+      <div class="footer-theme-tag">
+        Nordic Light Minimalist · Preview Concept 6
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Element -->
+  <div id="toast" class="toast">Copied hex code to clipboard!</div>
+
+  <script>
+    function copyHex(hex, name) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = `Copied ${hex} (${name}) to clipboard!`;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme 2: Luxury Parchment & Warm Ivory — Meard AI Lab</title>
+  <meta name="description" content="Theme Preview concept for Meard: Luxury Parchment & Warm Ivory with Deep Navy typography, gold accents, and hallmark blue logo." />
+  <link rel="icon" type="image/png" href="/logo-256.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & COLOR TOKENS: LUXURY PARCHMENT & WARM IVORY
+       ========================================================================== */
+    :root {
+      /* Ground Colors */
+      --bg-silk: #fcfbf7;
+      --bg-ivory: #f4f0e6;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f8f5ee;
+      --bg-accent-soft: rgba(212, 175, 55, 0.08);
+
+      /* Typography & Ink */
+      --text-primary: #0f172a;       /* Deep Navy */
+      --text-secondary: #334155;     /* Slate Navy */
+      --text-muted: #64748b;         /* Muted Ink */
+      --text-gold: #b8860b;          /* Aged Gold */
+      --text-gold-bright: #d4af37;   /* Bright Gold */
+
+      /* Accents & Lines */
+      --accent-gold: #c59b27;
+      --accent-gold-hover: #b3891d;
+      --border-gold-subtle: rgba(197, 155, 39, 0.25);
+      --border-gold-strong: rgba(197, 155, 39, 0.6);
+      --border-parchment: rgba(15, 23, 42, 0.08);
+
+      /* Hallmark Blue (Logo Accent Integration) */
+      --brand-blue: #1e64ff;
+      --brand-blue-bg: rgba(30, 100, 255, 0.04);
+      --brand-blue-border: rgba(30, 100, 255, 0.2);
+
+      /* Fonts */
+      --font-display: 'Cinzel', 'Source Serif 4', Georgia, serif;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Shadows & Radii */
+      --shadow-parchment: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(197, 155, 39, 0.08);
+      --shadow-card: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
+      --shadow-logo: 0 12px 28px -6px rgba(15, 23, 42, 0.12);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-silk);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-serif);
+      line-height: 1.7;
+      background: radial-gradient(circle at 50% 0%, var(--bg-silk) 0%, var(--bg-ivory) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle Micro-Parchment Grain Background Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+      background-size: 24px 24px;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       NAVIGATION & HEADER BAR
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(252, 251, 247, 0.85);
+      border-bottom: 1px solid var(--border-gold-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .header-logo-wrap {
+      background: var(--bg-card);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-gold-subtle);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .brand-group:hover .header-logo-wrap {
+      transform: translateY(-1px);
+      border-color: var(--accent-gold);
+    }
+
+    .header-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .theme-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: var(--bg-ivory);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: var(--radius-pill);
+      color: var(--text-gold);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       HERO SECTION: LUXURY PARCHMENT & WARM IVORY
+       ========================================================================== */
+    .hero-section {
+      padding: 5rem 0 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Kicker Badge */
+    .kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 6px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-strong);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-parchment);
+      margin-bottom: 2rem;
+    }
+
+    .kicker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      box-shadow: 0 0 8px var(--accent-gold);
+      animation: pulse-gold 2.5s infinite;
+    }
+
+    @keyframes pulse-gold {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .kicker-text {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    /* Main Headline */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title .highlight-gold {
+      color: var(--accent-gold);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight-gold::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), transparent);
+      opacity: 0.6;
+    }
+
+    /* Lede Text */
+    .hero-lede {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+    }
+
+    /* Action Buttons */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 16px 32px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--text-primary);
+      color: var(--bg-silk);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+      border-color: var(--text-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25), 0 0 0 1px var(--accent-gold);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--border-gold-strong);
+      box-shadow: var(--shadow-parchment);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-ivory);
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(197, 155, 39, 0.15);
+    }
+
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover .btn-icon {
+      transform: translateX(4px);
+    }
+
+    /* Sub-quote banner */
+    .hero-quote-bar {
+      border-left: 3px solid var(--accent-gold);
+      padding: 0.85rem 1.25rem;
+      background: rgba(244, 240, 230, 0.6);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+    }
+
+    /* ==========================================================================
+       HALLMARK SPOTLIGHT (LOGO FEATURE DISPLAY)
+       ========================================================================== */
+    .hero-visual-card {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-gold-strong);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-card), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Classical parchment framing elements */
+    .corner-ornament {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-color: var(--accent-gold);
+      border-style: solid;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .corner-tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
+    .corner-tr { top: 12px; right: 12px; border-width: 2px 2px 0 0; }
+    .corner-bl { bottom: 12px; left: 12px; border-width: 0 0 2px 2px; }
+    .corner-br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+    .logo-stage {
+      position: relative;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: radial-gradient(circle, var(--bg-silk) 0%, var(--bg-ivory) 100%);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border-gold-subtle);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-hallmark {
+      max-width: 210px;
+      height: auto;
+      filter: drop-shadow(var(--shadow-logo));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+
+    .hero-visual-card:hover .logo-hallmark {
+      transform: scale(1.04);
+      filter: drop-shadow(0 16px 32px rgba(30, 100, 255, 0.25));
+    }
+
+    .hallmark-caption {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .hallmark-caption strong {
+      color: var(--brand-blue);
+      font-weight: 600;
+    }
+
+    .hallmark-badge-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      padding: 8px 16px;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-parchment);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .badge-icon-blue {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      box-shadow: 0 0 10px var(--brand-blue);
+    }
+
+    /* ==========================================================================
+       COLOR PALETTE SWATCHES SECTION
+       ========================================================================== */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--border-gold-strong) 50%, transparent 100%);
+      margin: 4rem 0;
+      opacity: 0.6;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-gold);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .swatch-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-parchment);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .swatch-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+      box-shadow: var(--shadow-card);
+    }
+
+    .swatch-color-box {
+      height: 110px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+    }
+
+    .swatch-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+    }
+
+    .swatch-info {
+      padding: 1rem;
+    }
+
+    .swatch-name {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .swatch-desc {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Specific Swatch Color Fills */
+    .bg-silk-swatch { background-color: #fcfbf7; border-bottom: 1px solid rgba(15, 23, 42, 0.06); }
+    .bg-ivory-swatch { background-color: #f4f0e6; border-bottom: 1px solid rgba(15, 23, 42, 0.06); }
+    .bg-navy-swatch { background-color: #0f172a; }
+    .bg-gold-swatch { background-color: #c59b27; }
+    .bg-blue-swatch { background-color: #1e64ff; }
+    .bg-slate-swatch { background-color: #334155; }
+
+    /* Swatch Tag styles */
+    .tag-dark { background: rgba(15, 23, 42, 0.85); color: #fff; }
+    .tag-light { background: rgba(255, 255, 255, 0.9); color: #0f172a; border: 1px solid rgba(15, 23, 42, 0.1); }
+
+    /* ==========================================================================
+       FEATURE PREVIEWS & ARCHITECTURAL CARDS
+       ========================================================================== */
+    .preview-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-parchment);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .feature-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-body {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Monospace Code Strip Component */
+    .code-strip {
+      background: #0f172a;
+      color: #f4f0e6;
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border-gold-subtle);
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .code-comment { color: #94a3b8; }
+    .code-keyword { color: #e8c96a; font-weight: 600; }
+    .code-blue { color: #60a5fa; }
+
+    /* ==========================================================================
+       CONTRAST SPOTLIGHT PREVIEW DEMO (INTERACTIVE DEMO)
+       ========================================================================== */
+    .contrast-demo-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-strong);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 5rem;
+    }
+
+    .contrast-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contrast-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .contrast-toggle-group {
+      display: flex;
+      background: var(--bg-ivory);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-gold-subtle);
+    }
+
+    .toggle-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.active {
+      background: var(--text-primary);
+      color: var(--bg-silk);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+    }
+
+    .contrast-stage-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .contrast-stage-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stage-box {
+      border-radius: var(--radius-md);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .stage-parchment {
+      background: var(--bg-silk);
+      border-color: var(--border-gold-strong);
+    }
+
+    .stage-navy {
+      background: #0f172a;
+      border-color: rgba(212, 175, 55, 0.3);
+      color: #f4f0e6;
+    }
+
+    .stage-box img {
+      max-width: 160px;
+      height: auto;
+      margin-bottom: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .stage-box:hover img {
+      transform: scale(1.05);
+    }
+
+    .stage-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .stage-parchment .stage-label { color: var(--text-primary); }
+    .stage-navy .stage-label { color: var(--accent-gold); }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--border-gold-subtle);
+      background: var(--bg-ivory);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-link {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-visual-card {
+        max-width: 540px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        height: 70px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="brand-group" aria-label="Meard AI Lab Homepage">
+          <div class="header-logo-wrap">
+            <img src="/logo.png" alt="Meard Logo" class="header-logo" />
+          </div>
+          <span class="brand-text">Meard</span>
+        </a>
+
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="#overview" class="nav-link">Overview</a></li>
+            <li><a href="#hallmark" class="nav-link">Logo Hallmark</a></li>
+            <li><a href="#palette" class="nav-link">Color Palette</a></li>
+            <li><a href="#manifesto" class="nav-link">Manifesto</a></li>
+          </ul>
+        </nav>
+
+        <span class="theme-tag">Theme 2: Parchment &amp; Ivory</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION PREVIEW -->
+    <section class="hero-section" id="overview">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Copy -->
+          <div class="hero-content">
+            <div class="kicker-badge">
+              <span class="kicker-dot"></span>
+              <span class="kicker-text">Non-profit AI lab</span>
+            </div>
+
+            <h1 class="hero-title">
+              Sovereign intelligence on your <span class="highlight-gold">hardware.</span>
+            </h1>
+
+            <p class="hero-lede">
+              Investigating the epistemology of machine cognition and the architectures required to host sovereign digital minds on hardware you command.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#manifesto" class="btn btn-primary">
+                <span>Explore Manifestations</span>
+                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+
+              <a href="#palette" class="btn btn-secondary">
+                <span>Color Palette</span>
+              </a>
+            </div>
+
+            <div class="hero-quote-bar">
+              &ldquo;The instruments of thought are public. Upon their realization, they are ordained to dwell within your sovereign domain.&rdquo;
+            </div>
+          </div>
+
+          <!-- Hero Visual: Hallmark Logo Showcase -->
+          <div class="hero-visual-card" id="hallmark">
+            <div class="corner-ornament corner-tl"></div>
+            <div class="corner-ornament corner-tr"></div>
+            <div class="corner-ornament corner-bl"></div>
+            <div class="corner-ornament corner-br"></div>
+
+            <div class="logo-stage">
+              <img src="/logo.png" alt="Meard Mark Hallmark" class="logo-hallmark" />
+            </div>
+
+            <p class="hallmark-caption">
+              Hallmark Mark: <strong>Electric Cobalt Blue</strong> on <strong>Warm Parchment</strong>
+            </p>
+
+            <div class="hallmark-badge-line">
+              <span class="badge-icon-blue"></span>
+              <span>Monogram Monolith · Classical Silk Contrast</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="container"><div class="section-divider"></div></div>
+
+    <!-- COLOR PALETTE SWATCHES SECTION -->
+    <section class="container" id="palette">
+      <div class="section-header">
+        <p class="section-subtitle">Design System Architecture</p>
+        <h2 class="section-title">Color Palette Swatches</h2>
+      </div>
+
+      <div class="swatches-grid">
+        <!-- Swatch 1: Warm Silk -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-silk-swatch">
+            <span class="swatch-tag tag-light">Background</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Warm Light Silk</h3>
+            <span class="swatch-hex">#FCFBF7</span>
+            <p class="swatch-desc">Primary page ground. Soft, non-glare, organic canvas tone.</p>
+          </div>
+        </div>
+
+        <!-- Swatch 2: Warm Ivory -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-ivory-swatch">
+            <span class="swatch-tag tag-light">Surface</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Parchment Ivory</h3>
+            <span class="swatch-hex">#F4F0E6</span>
+            <p class="swatch-desc">Secondary ground, footer background, and card inset depth.</p>
+          </div>
+        </div>
+
+        <!-- Swatch 3: Deep Navy Typography -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-navy-swatch">
+            <span class="swatch-tag tag-dark">Typography</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Deep Navy Ink</h3>
+            <span class="swatch-hex">#0F172A</span>
+            <p class="swatch-desc">High contrast display titles, primary CTAs, and ink strokes.</p>
+          </div>
+        </div>
+
+        <!-- Swatch 4: Warm Gold Accent -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-gold-swatch">
+            <span class="swatch-tag tag-dark">Accent</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Warm Gold Weft</h3>
+            <span class="swatch-hex">#C59B27</span>
+            <p class="swatch-desc">Subtle ornaments, highlights, borders, and status indicators.</p>
+          </div>
+        </div>
+
+        <!-- Swatch 5: Hallmark Logo Blue -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-blue-swatch">
+            <span class="swatch-tag tag-dark">Hallmark</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Cobalt Logo Mark</h3>
+            <span class="swatch-hex">#1E64FF</span>
+            <p class="swatch-desc">Vibrant brand mark blue that pops modernly on warm silk.</p>
+          </div>
+        </div>
+
+        <!-- Swatch 6: Slate Navy Subtext -->
+        <div class="swatch-card">
+          <div class="swatch-color-box bg-slate-swatch">
+            <span class="swatch-tag tag-dark">Subtext</span>
+          </div>
+          <div class="swatch-info">
+            <h3 class="swatch-name">Slate Navy</h3>
+            <span class="swatch-hex">#334155</span>
+            <p class="swatch-desc">Lede paragraphs, secondary text, and body typography.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LOGO BACKGROUND CONTRAST COMPARISON -->
+    <section class="container" id="contrast-demo">
+      <div class="contrast-demo-section">
+        <div class="contrast-header">
+          <div>
+            <p class="section-subtitle">Brand Emblem Versatility</p>
+            <h3 class="contrast-title">Blue Logo on Parchment vs. Dark Slate</h3>
+          </div>
+          <div class="contrast-toggle-group">
+            <button class="toggle-btn active" id="btn-show-both" onclick="setContrastMode('both')">Side by Side</button>
+            <button class="toggle-btn" id="btn-show-parchment" onclick="setContrastMode('parchment')">Parchment Only</button>
+            <button class="toggle-btn" id="btn-show-navy" onclick="setContrastMode('navy')">Navy Only</button>
+          </div>
+        </div>
+
+        <div class="contrast-stage-container" id="stage-container">
+          <div class="stage-box stage-parchment" id="box-parchment">
+            <img src="/logo.png" alt="Logo on Parchment" />
+            <span class="stage-label">Light Parchment Ground (#FCFBF7)</span>
+          </div>
+          <div class="stage-box stage-navy" id="box-navy">
+            <img src="/logo.png" alt="Logo on Navy Ground" />
+            <span class="stage-label">Deep Slate Navy Ground (#0F172A)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL PILLARS / MANIFESTO PREVIEW -->
+    <section class="container" id="manifesto">
+      <div class="section-header">
+        <p class="section-subtitle">Philosophical Vectors</p>
+        <h2 class="section-title">The Ontology of Meard</h2>
+      </div>
+
+      <div class="preview-features">
+        <div class="feature-card">
+          <span class="feature-num">VECTOR 01</span>
+          <h3 class="feature-title">Architectures of Cognition</h3>
+          <p class="feature-body">
+            Constructing the paradigms through which artificial entities exist, deliberate, and manifest action. The neural weight is merely the seed; the surrounding systemic ontology determines its capacity to engage with truth.
+          </p>
+          <div class="code-strip">
+            <span class="code-comment">// Sovereign Runtime Spec</span><br/>
+            <span class="code-keyword">struct</span> <span class="code-blue">CognitiveNode</span> {<br/>
+            &nbsp;&nbsp;weight_path: <span class="code-blue">"/models/meard-7b.gguf"</span>,<br/>
+            &nbsp;&nbsp;sovereignty: <span class="code-keyword">true</span>,<br/>
+            &nbsp;&nbsp;locality: <span class="code-keyword">HardwareLocal</span>,<br/>
+            }
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-num">VECTOR 02</span>
+          <h3 class="feature-title">Epistemological Refinement</h3>
+          <p class="feature-body">
+            The deliberate sculpting of knowledge post-genesis. We believe that true mastery emerges not from the generalized void, but through the rigorous alignment of intent and specialized understanding.
+          </p>
+          <div class="code-strip">
+            <span class="code-comment">// Fine-tune Alignment Ledger</span><br/>
+            <span class="code-keyword">fn</span> <span class="code-blue">refine_epistemology</span>(target) {<br/>
+            &nbsp;&nbsp;target.<span class="code-blue">apply_weft_mask</span>(<span class="code-keyword">GOLD_WEFT</span>);<br/>
+            &nbsp;&nbsp;target.<span class="code-blue">verify_integrity</span>();<br/>
+            }
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-num">VECTOR 03</span>
+          <h3 class="feature-title">Sovereign Ecosystems</h3>
+          <p class="feature-body">
+            Architecting realities where inference and agency remain intrinsically bound to the custodian's domain. We reject the hegemony of monolithic, cloud-based consciousness in favor of decentralized, self-determined minds.
+          </p>
+          <div class="code-strip">
+            <span class="code-comment">// Decentralized Local Mesh</span><br/>
+            <span class="code-keyword">const</span> <span class="code-blue">MEARD_AXIOM</span> = <span class="code-keyword">"PUBLIC_CODE"</span>;<br/>
+            <span class="code-keyword">const</span> <span class="code-blue">INFERENCE_LOCATION</span> = <span class="code-keyword">"LOCAL_SILICON"</span>;
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">
+          &copy; 2026 Meard AI Lab — Theme Concept 2: Luxury Parchment &amp; Warm Ivory
+        </div>
+        <ul class="footer-links">
+          <li><a href="#overview" class="footer-link">Top</a></li>
+          <li><a href="#palette" class="footer-link">Color Swatches</a></li>
+          <li><a href="#manifesto" class="footer-link">Manifesto</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript for Contrast Stage Toggle -->
+  <script>
+    function setContrastMode(mode) {
+      const container = document.getElementById('stage-container');
+      const boxParchment = document.getElementById('box-parchment');
+      const boxNavy = document.getElementById('box-navy');
+      const btnBoth = document.getElementById('btn-show-both');
+      const btnParchment = document.getElementById('btn-show-parchment');
+      const btnNavy = document.getElementById('btn-show-navy');
+
+      // Reset button states
+      btnBoth.classList.remove('active');
+      btnParchment.classList.remove('active');
+      btnNavy.classList.remove('active');
+
+      if (mode === 'both') {
+        container.style.gridTemplateColumns = '1fr 1fr';
+        boxParchment.style.display = 'flex';
+        boxNavy.style.display = 'flex';
+        btnBoth.classList.add('active');
+      } else if (mode === 'parchment') {
+        container.style.gridTemplateColumns = '1fr';
+        boxParchment.style.display = 'flex';
+        boxNavy.style.display = 'none';
+        btnParchment.classList.add('active');
+      } else if (mode === 'navy') {
+        container.style.gridTemplateColumns = '1fr';
+        boxParchment.style.display = 'none';
+        boxNavy.style.display = 'flex';
+        btnNavy.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

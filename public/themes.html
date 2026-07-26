@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meard · 6 Theme Exploration Showcase</title>
+    <style>
+      :root {
+        --font: system-ui, -apple-system, sans-serif;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: var(--font);
+        background: #090d16;
+        color: #f1f5f9;
+        padding: 2rem;
+      }
+      header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+      }
+      h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.75rem; background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      p { color: #94a3b8; font-size: 1.1rem; line-height: 1.6; }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: #38bdf8;
+      }
+
+      .card-header {
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid #334155;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-title { font-size: 1.1rem; font-weight: 600; color: #f8fafc; }
+      .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        background: #0369a1;
+        color: #e0f2fe;
+        font-weight: 500;
+      }
+
+      .preview-frame {
+        width: 100%;
+        height: 380px;
+        border: 0;
+        background: #000;
+      }
+
+      .card-footer {
+        padding: 1rem 1.5rem;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .open-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #0284c7;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.15s ease;
+      }
+      .open-btn:hover { background: #0369a1; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Meard Background Theme Exploration</h1>
+      <p>6 subagents crafted 6 distinct aesthetic directions tailored specifically to complement the electric blue logo mark. Click any theme to view full screen.</p>
+    </header>
+
+    <div class="grid">
+      <!-- Theme 1 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">1. Deep Slate & Cyan Glow</div>
+          <span class="badge">Tech Dark</span>
+        </div>
+        <iframe src="/theme-1.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Graphite + Electric Cyan Spotlight</span>
+          <a href="/theme-1.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+
+      <!-- Theme 2 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">2. Luxury Parchment & Cream</div>
+          <span class="badge">Light Classic</span>
+        </div>
+        <iframe src="/theme-2.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Warm Ivory + Deep Navy Type</span>
+          <a href="/theme-2.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+
+      <!-- Theme 3 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">3. Midnight Indigo & Glass</div>
+          <span class="badge">Glassmorphism</span>
+        </div>
+        <iframe src="/theme-3.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Deep Indigo + Frosted Glass</span>
+          <a href="/theme-3.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+
+      <!-- Theme 4 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">4. Minimalist Pure Obsidian</div>
+          <span class="badge">Pitch Black</span>
+        </div>
+        <iframe src="/theme-4.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Obsidian Black + Silver Accents</span>
+          <a href="/theme-4.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+
+      <!-- Theme 5 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">5. Warm Charcoal & Gold</div>
+          <span class="badge">Harmonized Dark</span>
+        </div>
+        <iframe src="/theme-5.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Dark Charcoal + Warm Amber/Gold</span>
+          <a href="/theme-5.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+
+      <!-- Theme 6 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">6. Nordic Light Minimalist</div>
+          <span class="badge">Clean Light</span>
+        </div>
+        <iframe src="/theme-6.html" class="preview-frame" loading="lazy"></iframe>
+        <div class="card-footer">
+          <span style="color:#94a3b8; font-size:0.85rem">Soft Sky Slate + Clean Shadows</span>
+          <a href="/theme-6.html" target="_blank" class="open-btn">Open Full Page ↗</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

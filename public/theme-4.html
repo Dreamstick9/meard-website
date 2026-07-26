@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme 4: Minimalist Pure Obsidian & Silver — Meard AI</title>
+  <meta name="description" content="Minimalist Pure Obsidian & Silver theme preview for Meard non-profit AI lab. Sovereign intelligence on your hardware.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       THEME 4: MINIMALIST PURE OBSIDIAN & SILVER
+       Design System Tokens & Styles
+       ========================================================================== */
+
+    :root {
+      /* Palette Tokens */
+      --color-obsidian-0: #050505;
+      --color-obsidian-1: #09090b;
+      --color-obsidian-2: #0d0d11;
+      --color-obsidian-3: #141419;
+      --color-obsidian-card: #0a0c10;
+      
+      /* Silver & Typography Tokens */
+      --color-silver-pure: #ffffff;
+      --color-silver-bright: #f8fafc;
+      --color-silver-light: #e2e8f0;
+      --color-silver-mid: #cbd5e1;
+      --color-silver-muted: #94a3b8;
+      --color-silver-dark: #475569;
+      --color-silver-border: rgba(226, 232, 240, 0.12);
+      --color-silver-border-hover: rgba(226, 232, 240, 0.35);
+
+      /* Edge Blue Highlight Tokens */
+      --color-blue-highlight: #3b82f6;
+      --color-blue-glow: rgba(59, 130, 246, 0.4);
+      --color-blue-subtle: rgba(59, 130, 246, 0.15);
+      --color-blue-accent: #60a5fa;
+
+      /* Typography Families */
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-display: 'Space Grotesk', 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      /* Spacing & Radii */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+    }
+
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-obsidian-0);
+      color: var(--color-silver-light);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 100% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 35%),
+        linear-gradient(180deg, var(--color-obsidian-0) 0%, var(--color-obsidian-2) 50%, var(--color-obsidian-0) 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Ambient Grid Grid Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(5, 5, 5, 0.8);
+      border-bottom: 1px solid var(--color-silver-border);
+      padding: 1rem 0;
+      transition: border-color 0.3s ease;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    /* Mini Logo Accent Header */
+    .brand-logo-mini-frame {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--color-obsidian-2);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      box-shadow: 
+        0 0 12px rgba(59, 130, 246, 0.25),
+        inset 0 0 8px rgba(59, 130, 246, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      overflow: hidden;
+    }
+
+    .brand-logo-mini-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--color-silver-pure);
+    }
+
+    .nav-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-silver-muted);
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--color-silver-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-blue-accent);
+      box-shadow: 0 0 8px var(--color-blue-highlight);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-silver-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-silver-pure);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Hero Logo Showcase Frame - Subtle Blue Edge Highlights */
+    .logo-frame-wrapper {
+      position: relative;
+      margin-bottom: 2.5rem;
+      display: inline-block;
+    }
+
+    .logo-frame-glow-bg {
+      position: absolute;
+      inset: -4px;
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(30, 64, 175, 0.1), rgba(96, 165, 250, 0.4));
+      filter: blur(14px);
+      opacity: 0.75;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      z-index: 0;
+    }
+
+    .logo-frame-wrapper:hover .logo-frame-glow-bg {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .logo-frame {
+      position: relative;
+      z-index: 1;
+      width: 140px;
+      height: 140px;
+      padding: 1.5rem;
+      background: var(--color-obsidian-2);
+      border-radius: var(--radius-2xl);
+      /* Subtle Blue Edge Highlight Borders */
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      box-shadow: 
+        0 0 25px rgba(59, 130, 246, 0.25),
+        inset 0 0 20px rgba(59, 130, 246, 0.15),
+        0 20px 40px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .logo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-2xl);
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 60%) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    }
+
+    /* Kicker Badge */
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-blue-accent);
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    }
+
+    .kicker-spark {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-blue-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--color-blue-accent);
+    }
+
+    /* Hero Title */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 900px;
+      color: var(--color-silver-pure);
+      /* High Contrast Crisp Silver / White Typography */
+      background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Hero Lede Text */
+    .hero-lede {
+      font-size: clamp(1.0625rem, 2vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--color-silver-muted);
+      max-width: 720px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .btn {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    /* Primary Silver CTA Button */
+    .btn-primary {
+      background: var(--color-silver-pure);
+      color: var(--color-obsidian-0);
+      border: 1px solid var(--color-silver-pure);
+      box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+      box-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Secondary Obsidian Silver Outline Button */
+    .btn-secondary {
+      background: rgba(13, 13, 17, 0.6);
+      color: var(--color-silver-light);
+      border: 1px solid var(--color-silver-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--color-silver-border-hover);
+      color: var(--color-silver-pure);
+      transform: translateY(-2px);
+    }
+
+    /* Tertiary Edge Highlight Button */
+    .btn-blue-accent {
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--color-blue-accent);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+    }
+
+    .btn-blue-accent:hover {
+      background: rgba(59, 130, 246, 0.16);
+      border-color: var(--color-blue-highlight);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      transform: translateY(-2px);
+    }
+
+    /* Section Styling */
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-silver-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--color-silver-pure);
+      letter-spacing: -0.02em;
+    }
+
+    /* Color Palette Swatches Section */
+    .swatches-wrapper {
+      background: var(--color-obsidian-card);
+      border: 1px solid var(--color-silver-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      margin-bottom: 5rem;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .swatches-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+    }
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .swatch-card {
+      background: var(--color-obsidian-2);
+      border: 1px solid var(--color-silver-border);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .swatch-card:hover {
+      border-color: var(--color-silver-border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .swatch-box {
+      width: 100%;
+      height: 70px;
+      border-radius: var(--radius-md);
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 0.5rem;
+    }
+
+    /* Individual Swatch Fills & Special Highlights */
+    .swatch-obsidian-0 { background-color: #050505; border: 1px solid rgba(255,255,255,0.15); }
+    .swatch-obsidian-2 { background-color: #0d0d11; border: 1px solid rgba(255,255,255,0.15); }
+    .swatch-silver-pure { background-color: #ffffff; color: #050505; }
+    .swatch-silver-muted { background-color: #94a3b8; color: #050505; }
+    .swatch-blue-edge { 
+      background-color: #3b82f6; 
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6); 
+    }
+    .swatch-border-slate { background-color: #1e293b; }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .swatch-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-silver-pure);
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-silver-muted);
+    }
+
+    .swatch-role {
+      font-size: 0.75rem;
+      color: var(--color-silver-dark);
+      margin-top: 0.25rem;
+      line-height: 1.3;
+    }
+
+    /* Core Principles & Tools Preview Cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .feature-card {
+      background: var(--color-obsidian-card);
+      border: 1px solid var(--color-silver-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(59, 130, 246, 0.1);
+    }
+
+    .feature-card:hover::after {
+      opacity: 1;
+    }
+
+    .feature-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--color-silver-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue-accent);
+      margin-bottom: 1.25rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-silver-pure);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9375rem;
+      color: var(--color-silver-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-footer {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-silver-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+    }
+
+    .feature-tag {
+      color: var(--color-blue-accent);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--color-silver-border);
+      padding: 3rem 0;
+      background: var(--color-obsidian-0);
+      margin-top: 4rem;
+    }
+
+    .footer-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      color: var(--color-silver-muted);
+    }
+
+    .footer-legal {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-silver-dark);
+    }
+
+    /* Toast Notification for Swatch Copy */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--color-obsidian-2);
+      border: 1px solid var(--color-blue-highlight);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      color: var(--color-silver-pure);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 0;
+      }
+      .swatches-wrapper {
+        padding: 1.5rem;
+      }
+      .logo-frame {
+        width: 110px;
+        height: 110px;
+        padding: 1.25rem;
+      }
+      .action-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-link">
+        <div class="brand-logo-mini-frame">
+          <img src="logo.png" alt="Meard Logo" onerror="this.src='logo-256.png'">
+        </div>
+        <span class="brand-name">MEARD</span>
+      </a>
+
+      <div class="nav-tag">
+        <span class="nav-tag-dot"></span>
+        Theme 04: Pure Obsidian &amp; Silver
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#swatches">Palette</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="https://github.com/meard-ai" target="_blank" rel="noopener">GitHub ↗</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Hero Section -->
+  <main class="container">
+    <section class="hero">
+      
+      <!-- Logo Showcase Frame with Subtle Blue Edge Highlights -->
+      <div class="logo-frame-wrapper">
+        <div class="logo-frame-glow-bg"></div>
+        <div class="logo-frame">
+          <img src="logo.png" alt="Meard AI Logo" class="logo-img" onerror="this.src='logo-256.png'">
+        </div>
+      </div>
+
+      <!-- Kicker Badge -->
+      <div class="kicker">
+        <span class="kicker-spark"></span>
+        Non-profit AI lab
+      </div>
+
+      <!-- Main Display Title -->
+      <h1 class="hero-title">
+        Sovereign intelligence on your hardware.
+      </h1>
+
+      <!-- Lede Paragraph -->
+      <p class="hero-lede">
+        Meard develops open-source harnesses, local quantization engines, and transparent benchmark tools. We build sovereign AI infrastructure engineered to run cleanly on hardware you own—free from cloud locks and black-box APIs.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="https://github.com" class="btn btn-primary" target="_blank" rel="noopener">
+          Explore Open Tools
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+        <a href="#tools" class="btn btn-secondary">
+          Read Technical Foci
+        </a>
+
+        <a href="#swatches" class="btn btn-blue-accent">
+          View Palette Swatches
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Color Palette Swatches Preview Section -->
+    <section id="swatches" class="swatches-wrapper">
+      <div class="section-header">
+        <div class="section-subtitle">// THEME SYSTEM PALETTE</div>
+        <h2 class="section-title">Minimalist Pure Obsidian &amp; Silver</h2>
+      </div>
+
+      <div class="swatches-grid">
+        
+        <!-- Swatch 1: Pitch Obsidian Ground -->
+        <div class="swatch-card" onclick="copyColor('#050505')">
+          <div class="swatch-box swatch-obsidian-0"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Pitch Obsidian</span>
+            <span class="swatch-hex">#050505</span>
+            <span class="swatch-role">Primary Ground / Deep Space</span>
+          </div>
+        </div>
+
+        <!-- Swatch 2: Deep Obsidian Surface -->
+        <div class="swatch-card" onclick="copyColor('#0D0D11')">
+          <div class="swatch-box swatch-obsidian-2"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Deep Surface</span>
+            <span class="swatch-hex">#0D0D11</span>
+            <span class="swatch-role">Card Fill &amp; Panels</span>
+          </div>
+        </div>
+
+        <!-- Swatch 3: Slate Structure Border -->
+        <div class="swatch-card" onclick="copyColor('#1E293B')">
+          <div class="swatch-box swatch-border-slate"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Slate Structure</span>
+            <span class="swatch-hex">#1E293B</span>
+            <span class="swatch-role">Divider Hairlines &amp; Cards</span>
+          </div>
+        </div>
+
+        <!-- Swatch 4: Subtle Blue Edge Highlight -->
+        <div class="swatch-card" onclick="copyColor('#3B82F6')">
+          <div class="swatch-box swatch-blue-edge"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Blue Edge Highlight</span>
+            <span class="swatch-hex">#3B82F6</span>
+            <span class="swatch-role">Logo Framing &amp; Glow Edge</span>
+          </div>
+        </div>
+
+        <!-- Swatch 5: Pure Silver White -->
+        <div class="swatch-card" onclick="copyColor('#FFFFFF')">
+          <div class="swatch-box swatch-silver-pure"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Pure Silver White</span>
+            <span class="swatch-hex">#FFFFFF</span>
+            <span class="swatch-role">High Contrast Typography</span>
+          </div>
+        </div>
+
+        <!-- Swatch 6: Muted Silver Text -->
+        <div class="swatch-card" onclick="copyColor('#94A3B8')">
+          <div class="swatch-box swatch-silver-muted"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Muted Silver</span>
+            <span class="swatch-hex">#94A3B8</span>
+            <span class="swatch-role">Subtitles &amp; Mission Prose</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Research Tools Section -->
+    <section id="tools">
+      <div class="section-header">
+        <div class="section-subtitle">// RESEARCH FOCI &amp; OPEN CODE</div>
+        <h2 class="section-title">Built for local-first execution</h2>
+      </div>
+
+      <div class="features-grid">
+        
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-icon-badge">01</div>
+            <h3 class="feature-title">High-Throughput Harness</h3>
+            <p class="feature-desc">Optimized C++/Metal runner for transformer models with low-latency local token generation and zero telemetry leakage.</p>
+          </div>
+          <div class="feature-footer">
+            <span class="feature-tag"># C++ / Metal</span>
+            <span>AGPLv3</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-icon-badge">02</div>
+            <h3 class="feature-title">Sub-byte Quantization</h3>
+            <p class="feature-desc">Extensible quantization suite preserving semantic accuracy on consumer workstation GPUs and Apple Silicon neural engines.</p>
+          </div>
+          <div class="feature-footer">
+            <span class="feature-tag"># Python / PyTorch</span>
+            <span>MIT</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-icon-badge">03</div>
+            <h3 class="feature-title">Private Benchmarking</h3>
+            <p class="feature-desc">Offline evaluation framework allowing researchers to grade model capabilities against sensitive, local datasets securely.</p>
+          </div>
+          <div class="feature-footer">
+            <span class="feature-tag"># Rust / WebAssembly</span>
+            <span>Apache 2.0</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrapper">
+      <div class="footer-brand">
+        <div class="brand-logo-mini-frame">
+          <img src="logo.png" alt="Meard Logo" onerror="this.src='logo-256.png'">
+        </div>
+        <span class="footer-text">Meard — Non-profit AI Research Lab</span>
+      </div>
+
+      <div class="footer-legal">
+        &copy; 2026 Meard AI. Minimalist Pure Obsidian &amp; Silver Edition.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Element -->
+  <div id="toast" class="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-msg">Color hex copied to clipboard</span>
+  </div>
+
+  <script>
+    function copyColor(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+        toastMsg.textContent = 'Copied ' + hex + ' to clipboard';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      }).catch(err => {
+        console.error('Copy failed', err);
+      });
+    }
+  </script>
+
+</body>
+</html>

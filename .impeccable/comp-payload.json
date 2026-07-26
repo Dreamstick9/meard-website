@@ -1,0 +1,33 @@
+{
+  "title": "Choose Meard composition",
+  "question": "Three Jacquard compositions for the Meard landing page. Pick one to build, combine ideas, or revise.",
+  "options": [
+    {
+      "id": "comp-canopy",
+      "label": "Punch-card canopy hero",
+      "kicker": "COMP A",
+      "lineage": "Quality-bar sibling: cream hole-grid canopy + silk bird field",
+      "body": "First viewport is a thesis: large gold headline left, woven bird right, punch-card nav top, cream mission strip bottom. Strongest match to the craft bar. Tools and contact live below the fold as loom bands.",
+      "hero": "/Users/kushagargargsmacbook/meard-website/.impeccable/comps/2.jpg"
+    },
+    {
+      "id": "comp-bands",
+      "label": "Vertical loom bands",
+      "kicker": "COMP B",
+      "lineage": "Full-page warp-lift sequence",
+      "body": "The whole site is stacked loom rows: cream nav → silk thesis → cream instruction/binary → silk tool cards → gold contact rail. Best for funder storytelling and honest 'no models yet' ledger rows. Slightly denser.",
+      "hero": "/Users/kushagargargsmacbook/meard-website/.impeccable/comps/3.jpg"
+    },
+    {
+      "id": "comp-split",
+      "label": "Split workbench",
+      "kicker": "COMP C",
+      "lineage": "Instruction panel + motif bay",
+      "body": "Left cream punch ledger of lab truths; right silk with bird and dual CTAs. Tools as woven cards under the split. Excellent for funder scan of facts + action; risk is left column feeling form-like if copy is long.",
+      "hero": "/Users/kushagargargsmacbook/meard-website/.impeccable/comps/1.jpg"
+    }
+  ],
+  "reroll": false,
+  "canon": false,
+  "steer": true
+}
