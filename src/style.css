@@ -628,6 +628,57 @@ a {
   color: color-mix(in srgb, var(--color-gold-weft) 45%, var(--color-silk-muted));
 }
 
+/* Sticky X (Twitter) Corner Button */
+.sticky-x-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.1rem;
+  background: color-mix(in srgb, var(--color-midnight-silk) 90%, #ffffff 10%);
+  border: 1px solid rgba(104, 74, 0, 0.35);
+  border-radius: 9999px;
+  color: var(--color-silk-text);
+  font-family: var(--font-ledger);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(24, 32, 53, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sticky-x-btn:hover {
+  transform: translateY(-2px);
+  background: var(--color-gold-weft);
+  border-color: var(--color-gold-weft-soft);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(104, 74, 0, 0.28);
+}
+
+.sticky-x-btn .x-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.sticky-x-btn:hover .x-icon {
+  transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+  .sticky-x-btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.7rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
